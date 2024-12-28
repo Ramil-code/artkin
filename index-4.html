@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARTKIN - The Art of Pumpkin Carving</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em; /* Increased header size */
+        }
+        #inputContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+        #inputText {
+            padding: 15px; /* Increased input field size */
+            font-size: 1.5em; /* Increased font size */
+            margin-bottom: 10px;
+            width: 100%; /* Set width to 100% */
+            max-width: 400px; /* Max width to control larger screens */
+            box-sizing: border-box; /* Ensure padding is included in the width */
+        }
+        #submitBtn {
+            padding: 15px 30px; /* Increased button size */
+            font-size: 1.5em; /* Increased font size */
+        }
+        #imageContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        img {
+            width: 200px; /* Set width */
+            height: auto; /* Maintain aspect ratio */
+            margin: 5px;
+        }
+        #refreshMessage {
+            margin: 20px 0; /* Added top and bottom margin */
+            text-align: center;
+        }
+        #newestArtkins {
+            font-size: 2em; /* Increased size */
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        /* Make sure elements adjust on smaller screens */
+        @media (max-width: 768px) {
+            #inputText {
+                width: 90%; /* Take up most of the screen width on smaller devices */
+            }
+            #submitBtn {
+                width: 90%; /* Make button also adapt to smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>ARTKIN - The Art of Pumpkin Carving</h1>
+    <div id="inputContainer">
+        <input type="text" id="inputText" placeholder="What do you want to carve?">
+        <button id="submitBtn">Create Artkin</button>
+    </div>
+    <div id="newestArtkins">Check out the 12 Newest Artkins Created!</div>
+    <div id="refreshMessage">To find your Artkin, please refresh the page after 15 seconds ...</div>
+    <div style="margin-bottom: 40px;"></div> <!-- Added space after message -->
+    <div id="imageContainer"></div>
+
+    <script>
+        const bucketUrl = 'REPLACE_WITH_YOUR_BUCKET_FOLDER';
+
+        document.getElementById('submitBtn').onclick = function() {
+            const input = document.getElementById('inputText').value;
+            const apiUrl = 'REPLACE_WITH_YOUR_API_GATEWAY';
+
+            fetch(`${apiUrl}?input=${input}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.image_url) {
+                        displayImages();
+                    } else {
+                        alert('Cannot get image.');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        };
+
+        function displayImages() {
+            const imageContainer = document.getElementById('imageContainer');
+            imageContainer.innerHTML = '';
+
+            // Load images from 1 to 12
+            for (let i = 1; i <= 12; i++) {
+                const imgElement = document.createElement('img');
+                // Adding a unique parameter to the URL to avoid caching
+                imgElement.src = `${bucketUrl}${i}.png?time=${new Date().getTime()}`; // Image names - 1.png, 2.png, etc.
+                imageContainer.appendChild(imgElement);
+            }
+        }
+
+        // Load images on page initialization
+        window.onload = displayImages;
+    </script>
+</body>
+</html>
