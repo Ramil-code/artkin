@@ -25,7 +25,7 @@ Follow these steps to set up the project:
 1. **Set Up AWS Resources**:
    - Create an S3 bucket and folder for image storage
    - Enable Static Website Hosting on the S3 bucket. The index.html example attached to project docs.
-   - Set up an AWS Lambda function (code attached) that is triggered by an API Gateway GET request
+   - Set up an AWS Lambda function [(code attached)](https://github.com/Ramil-code/artkin/blob/main/lambda.py) that is triggered by an API Gateway GET request
    - Parameter Store: Store your OpenAI API key in AWS Systems Manager Parameter Store
    - Attach poilcies for S3, Parameter Store, Lambda. Configure API Gateway Permissions.
 
