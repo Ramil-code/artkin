@@ -1,4 +1,5 @@
-***S3***
+### S3
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -9,9 +10,11 @@
     }
   ]
 }
+```
 
-***Lambda***
+### Lambda
 
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -34,9 +37,11 @@
     }
   ]
 }
+```
 
-***API Gateway***
+### API Gateway
 
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -47,3 +52,4 @@
     }
   ]
 }
+```
