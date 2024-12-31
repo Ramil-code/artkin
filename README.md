@@ -3,7 +3,9 @@
 ## Introduction
 Artkin is a fun and educational web service for generating colorful pumpkin carving templates. Users can input a description of what they want to carve on a pumpkin, and the service generates a detailed silhouette template. Artkin aims to make Halloween preparation easier and more creative for everyone.
 
-![artkin](https://github.com/user-attachments/assets/ad2883a9-7d13-4c19-be5f-cfffcd0651dd)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ad2883a9-7d13-4c19-be5f-cfffcd0651dd" alt="artkin">
+</p>
 
 ---
 
@@ -14,7 +16,9 @@ Artkin is a fun and educational web service for generating colorful pumpkin carv
 - **Static Web Page**: Displays generated templates as a gallery with 100x100 pixel previews.
 - **View Previous Creations**: Users can see templates created by others or earlier by themselves in the gallery.
 
-![artkin-2](https://github.com/user-attachments/assets/5ee125dc-c231-4feb-a06c-6ba80653ceb0)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5ee125dc-c231-4feb-a06c-6ba80653ceb0" alt="artkin-2">
+</p>
 
 
 ---
